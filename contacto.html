@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiniOS</title>
+<style>
+/* Estilos generales */
+body {
+    background: #111;
+    color: #fff;
+    font: 16px Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#menu {
+    background: #333;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#menu ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+#menu ul li a:hover {
+    font-size: 18px;
+    color: yellow;
+}
+
+#main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.c h1 {
+    color: #FFC107;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-section {
+    margin-top: 20px;
+}
+
+.contact-form {
+    background: #333;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.contact-form h2 {
+    color: #FFC107;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para hacer el iframe responsive */
+.responsive-iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Proporción 16:9 */
+    overflow: hidden;
+}
+
+.responsive-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+</style>
+</head>
+<body>
+<div id="menu">
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="#">Acerca de</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+</div>
+<div id="main">
+    <div class="c">
+        <h1>Formulario de Contacto</h1>
+    </div>
+    <div id="contacto" class="contact-section">
+        <div class="contact-form">
+            <h2>Rellena tus datos, te responderemos en menos de 24h !!!</h2>
+            <!-- Aquí se integra el formulario de Google Forms de manera responsive -->
+            <div class="responsive-iframe-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScij9ta4HUH8SbhOoPA5kn0OQ-7LQxuOVNt5rAZqT935nLYgQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
