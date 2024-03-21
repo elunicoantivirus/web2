@@ -3,10 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ELUNICOANTIVIRUS</title>
+    <title>EL UNICO ANTIVIRUS</title>
+    <link rel="icon" type="image/png" href="https://cdn-1.webcatalog.io/catalog/hack-the-box/hack-the-box-icon-filled-256.webp?v=1669863995747">
     <style>
        body{background:#111;color:#fff;font:16px Arial,sans-serif;margin:0;padding:0}#main{max-width:800px;margin:0 auto;padding:20px;background:rgba(255,255,255,.1);border-radius:10px;box-shadow:0 0 20px rgba(0,0,0,.2)}.b{background:#333;padding:10px 20px;margin-bottom:20px;color:#fff;border-radius:10px 10px 0 0}.b span{color:#fff;display:block;margin-top:5px;font-size:14px}.i{background:#222;padding:20px;border-radius:0 0 10px 10px}.c h1{color:#FFC107;text-align:center;margin-bottom:20px}table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px solid #444;text-align:left}th{background:#333;color:#FFC107}td{background:#444}.btn{display:inline-block;padding:8px 16px;background:#FFC107;color:#111;text-decoration:none;border-radius:5px;transition:background .3s,transform .3s,color .3s,box-shadow .3s;box-shadow:0 4px 8px rgba(0,0,0,.2)}.btn:hover{background:#FFD740;transform:scale(1.1);color:#000;box-shadow:0 8px 16px rgba(0,0,0,.2)}.btn+.btn{margin-left:10px}.separator{border-top:2px solid rgba(255,255,255,.5);margin:20px 0}#menu{background:#333;padding:10px 0;text-align:center;border-radius:10px;margin-bottom:20px}#menu ul{margin:0;padding:0;list-style-type:none}#menu ul li{display:inline-block;margin-right:20px}#menu ul li a{color:#fff;text-decoration:none;font-size:16px;transition:font-size .3s,color .3s}#menu ul li a:hover{font-size:18px;color:yellow}.table-wrapper{overflow-x:auto}.show-password-btn{background-color:red;color:#fff;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;transition:background-color .3s,transform .3s}.show-password-btn:hover{background-color:#ff3333;transform:scale(1.1)}.show-password-btn+.btn{margin-left:10px}.separator{border-top:2px solid rgba(255,255,255,.5);margin:20px 0}#password{display:none;background:#222;color:#FFC107;padding:5px 10px;border-radius:5px;margin-top:10px}
 
+
+
+
+
+
+
+
+       #search-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    #search-input {
+        padding: 10px;
+        width: 300px;
+        margin-right: 10px;
+    }
+
+    #search-results-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #search-results {
+        display: inline-block;
+        text-align: left;
+    }
+
+    .highlight {
+        background-color: rgb(0, 1, 78);
+    }
+
+
+
+
+
+
+
+
+
+
+
+       
     </style>
 </head>
 <body>
@@ -14,10 +58,73 @@
     <ul>
     <li><a href="index.html">Inicio</a></li>
     <li><a href="productos.html">Productos</a></li>
-    <li><a href="#">Acerca de</a></li>
+    <li><a href="acercade.html">Acerca de</a></li>
     <li><a href="contacto.html">Contacto</a></li>
     </ul>
 </div>
+
+
+
+
+
+
+
+<div id="search-container">
+    <h2>Buscador</h2>
+    <input type="text" id="search-input" placeholder="Buscar...">
+</div>
+
+<div id="search-results-container">
+    <div id="search-results">
+        
+    </div>
+</div>
+
+<script>
+document.getElementById('search-input').addEventListener('input', function() {
+    var searchTerm = this.value.toLowerCase().trim();
+    var productRows = document.querySelectorAll('tbody tr');
+    var tableHead = document.querySelector('thead');
+    var searchResults = document.getElementById('search-results');
+    searchResults.innerHTML = '';
+
+    if (searchTerm.length > 0) {
+        for (var i = 0; i < productRows.length; i++) {
+            var productName = productRows[i].getElementsByTagName('td')[0].textContent.toLowerCase();
+            if (productName.includes(searchTerm)) {
+                var rowClone = productRows[i].cloneNode(true);
+                highlightMatches(rowClone, searchTerm); // Resaltar caracteres coincidentes
+                searchResults.appendChild(rowClone);
+            }
+        }
+        var headClone = tableHead.cloneNode(true);
+        searchResults.insertBefore(headClone, searchResults.firstChild);
+    }
+});
+
+function highlightMatches(row, term) {
+    var cells = row.querySelectorAll('td');
+    for (var j = 0; j < cells.length; j++) {
+        var cellText = cells[j].textContent.toLowerCase();
+        var startIndex = cellText.indexOf(term);
+        if (startIndex !== -1) {
+            var endLength = startIndex + term.length;
+            var highlightedText = cellText.substring(0, startIndex) + '<span class="highlight">' + cellText.substring(startIndex, endLength) + '</span>' + cellText.substring(endLength);
+            cells[j].innerHTML = highlightedText;
+        }
+    }
+}
+
+</script>
+<br>
+
+
+
+
+
+
+
+
 <div id="main" class="w s1">
     <div class="i">
         <div class="c">
